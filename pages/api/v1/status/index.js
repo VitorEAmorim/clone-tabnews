@@ -14,7 +14,6 @@ async function status(request, response){
 
   const dataBaseConnectionsResolve = await database.query({
     text:"SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1", values: [dataBaseName]})
-  // "SELECT count(*)::int FROM pg_stat_activity WHERE datname = 'local_db';")
 
   const dataBaseOpenedConnectionsValue = await dataBaseConnectionsResolve.rows[0].count
 
